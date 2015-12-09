@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 14:41:30 by rfriscca          #+#    #+#             */
-/*   Updated: 2015/12/01 18:03:36 by rfriscca         ###   ########.fr       */
+/*   Updated: 2015/12/09 15:00:57 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ static char	**ft_taballoc(char const *s, char c)
 			j++;
 		i++;
 	}
-	tab = (char**)malloc(j * sizeof(tab));
+	if ((tab = (char**)malloc(j * sizeof(tab))) == NULL)
+		return (NULL);
 	tab = ft_taballoc_line(tab, s, c);
 	return (tab);
 }
